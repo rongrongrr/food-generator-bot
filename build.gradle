@@ -1,5 +1,7 @@
 plugins {
     id 'java'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '5.1.0'
 }
 
 group 'food-generator-bot'
@@ -14,4 +16,15 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compile group: 'org.telegram', name: 'telegrambots', version: '4.4.0.1'
+}
+
+shadowJar {
+    archiveBaseName = "makan_where_bot"
+    archiveVersion = "0.1.1"
+    archiveClassifier = null
+    archiveAppendix = null
+}
+
+application {
+    mainClassName = "Main"
 }
